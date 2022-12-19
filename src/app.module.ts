@@ -1,12 +1,10 @@
-import { PrismaService } from './infra/prima.service';
 import { Module } from '@nestjs/common';
-import { AppController } from './infra/app.controller';
+import { HttpModule } from './infra/http/http.module';
+import { DatabaseModule } from './infra/db/database.module';
 
 // acoplador, ponto central pra acoplar os demais arquivos
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [PrismaService],
+  imports: [HttpModule, DatabaseModule],
 })
 export class AppModule {}
